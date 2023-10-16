@@ -1,0 +1,25 @@
+#######################################
+# Syntax Coloring Map for ESPAsyncDDP
+#######################################
+
+#######################################
+# Datatypes (KEYWORD1)
+#######################################
+
+ESPAsyncDDP KEYWORD1
+
+#######################################
+# Methods and Functions (KEYWORD2)
+#######################################
+
+begin KEYWORD2
+close KEYWORD2
+handle KEYWORD2
+register_query_cb KEYWORD2
+unregister_query_cb KEYWORD2
+register_write_cb KEYWORD2
+unregister_write_cb KEYWORD2
+
+#######################################
+# Constants (LITERAL1)
+#######################################
