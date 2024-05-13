@@ -36,8 +36,7 @@ struct ddp_header
 
 struct endpoint
 {
-  IPAddress ipv4;
-  IPv6Address ipv6;
+  IPAddress ip;
   uint32_t port;
 };
 

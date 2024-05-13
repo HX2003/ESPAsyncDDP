@@ -93,8 +93,7 @@ void ESPAsyncDDP::parse_packet(AsyncUDPPacket packet)
 	{
 		// Query
 		endpoint sender;
-		sender.ipv4 = packet.remoteIP();
-		sender.ipv6 = packet.remoteIPv6();
+		sender.ip = packet.remoteIP();
 		sender.port = packet.remotePort();
 
 		if (my_ddp_header.id == DDP_ID_STATUS)
@@ -140,16 +139,7 @@ void ESPAsyncDDP::process_query(ddp_header my_ddp_header, endpoint sender)
 			msg.write((uint8_t *)(&reply_ddp_header), sizeof(ddp_header));
 			msg.write(data.data(), data.size());
 
-			if (!(sender.ipv4 == IPAddress()))
-			{
-				// Valid IPv4 address
-				_udp.sendTo(msg, sender.ipv4, sender.port);
-			}
-			else if (!(sender.ipv6 == IPv6Address()))
-			{
-				// Valid IPv6 address
-				_udp.sendTo(msg, sender.ipv6, sender.port);
-			}
+			_udp.sendTo(msg, sender.ip, sender.port);
 		}
 	}
 }
